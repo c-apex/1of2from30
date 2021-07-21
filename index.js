@@ -86,13 +86,13 @@ function open_index_page(req, res, next) {
             questionct: questionct,
          });
       } else {
-         if (sideA < sideB) {
+         if (sideA > sideB) {
             var side = poll.info.sideAResult
          }
          else if (sideA === sideB) {
             var side = poll.info.neutralResult
          }
-         else if (sideA > sideB) {
+         else if (sideA < sideB) {
             var side = poll.info.sideBResult
          }
 uuid = uuidv4()
@@ -129,13 +129,13 @@ var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid} SIDE-${side} A-${sideA} B-${si
       });
    }
    else {
-      if (sideA < sideB) {
+      if (sideA > sideB) {
          var side = poll.info.sideAResult
       }
       else if (sideA === sideB) {
          var side = poll.info.neutralResult
       }
-      else if (sideA > sideB) {
+      else if (sideA < sideB) {
          var side = poll.info.sideBResult
       }
 uuid = uuidv4()
