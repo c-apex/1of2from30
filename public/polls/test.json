@@ -1,0 +1,129 @@
+{
+  "questions": [{
+    "question": "1",
+    "side": "a"
+  },
+    {
+      "question": "2",
+      "side": "b"
+    },
+    {
+      "question": "3",
+      "side": "a"
+    },
+    {
+      "question": "4",
+      "side": "a"
+    },
+    {
+      "question": "5",
+      "side": "b"
+    },
+    {
+      "question": "6",
+      "side": "a"
+    },
+    {
+      "question": "7",
+      "side": "b"
+    },
+    {
+      "question": "8",
+      "side": "b"
+    },
+    {
+      "question": "9",
+      "side": "a"
+    },
+    {
+      "question": "10",
+      "side": "b"
+    },
+    {
+      "question": "11",
+      "side": "a"
+    },
+    {
+      "question": "12",
+      "side": "b"
+    },
+    {
+      "question": "13",
+      "side": "a"
+    },
+    {
+      "question": "14",
+      "side": "b"
+    },
+    {
+      "question": "15",
+      "side": "a"
+    },
+    {
+      "question": "16",
+      "side": "a"
+    },
+    {
+      "question": "17",
+      "side": "b"
+    },
+    {
+      "question": "18",
+      "side": "b"
+    },
+    {
+      "question": "19",
+      "side": "a"
+    },
+    {
+      "question": "20",
+      "side": "b"
+    },
+    {
+      "question": "21",
+      "side": "b"
+    },
+    {
+      "question": "22",
+      "side": "a"
+    },
+    {
+      "question": "23",
+      "side": "b"
+    },
+    {
+      "question": "24",
+      "side": "a"
+    },
+    {
+      "question": "25",
+      "side": "b"
+    },
+    {
+      "question": "26",
+      "side": "a"
+    },
+    {
+      "question": "27",
+      "side": "a"
+    },
+    {
+      "question": "28",
+      "side": "b"
+    },
+    {
+      "question": "29",
+      "side": "b"
+    },
+    {
+      "question": "30",
+      "side": "a"
+    }
+  ],
+  "info": {
+    "title": "POLL TITLE",
+    "description": "POLL DESCRIPTION",
+    "instructions": "Select all statements you agree with.",
+    "key": "OUTPUT-ENCODING-PHRASE"
+  }
+}
