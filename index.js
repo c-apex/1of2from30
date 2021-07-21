@@ -67,6 +67,11 @@ function open_index_page(req, res, next) {
    app.post('/yes', function(req, res, next){
       if (poll.questions[questionnum].side === "a") {
          sideA++;
+         str = str.concat(stra);
+      }
+      else if (poll.questions[questionnum].side === "b") {
+         sideB++;
+         str = str.concat(strb);
       }
       str = str.concat(stra);
       let numcompare = questionnum < questionct
@@ -81,18 +86,18 @@ function open_index_page(req, res, next) {
             questionct: questionct,
          });
       } else {
-         if (sideA > sideB) {
+         if (sideA < sideB) {
             var side = poll.info.sideAResult
          }
          else if (sideA === sideB) {
             var side = poll.info.neutralResult
          }
-         else if (sideA < sideB) {
+         else if (sideA > sideB) {
             var side = poll.info.sideBResult
          }
 uuid = uuidv4()
-console.log(`Poll complete: ID-${uuid}-${str}`)
-var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid}-${str}`, poll.info.key).toString();
+console.log(`Poll complete: ID-${uuid} SIDE-${side} A-${sideA} B-${sideB}`)
+var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid} SIDE-${side} A-${sideA} B-${sideB}`, poll.info.key).toString();
     res.render('result', {
         title: poll.info.title,
         description: poll.info.description,
@@ -104,9 +109,13 @@ var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid}-${str}`, poll.info.key).toStri
 
    app.post('/no', function(req, res, next){
       if (poll.questions[questionnum].side === "b") {
-         sideB++;
+         sideA++;
+      str = str.concat(stra);
       }
+      else if (poll.questions[questionnum].side === "a") {
+         sideB++;
       str = str.concat(strb);
+      }
    let numcompare = questionnum < questionct
    if (numcompare === true) {
       questionnum = questionnum + 1;
@@ -120,18 +129,18 @@ var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid}-${str}`, poll.info.key).toStri
       });
    }
    else {
-      if (sideA > sideB) {
+      if (sideA < sideB) {
          var side = poll.info.sideAResult
       }
       else if (sideA === sideB) {
          var side = poll.info.neutralResult
       }
-      else if (sideA < sideB) {
+      else if (sideA > sideB) {
          var side = poll.info.sideBResult
       }
 uuid = uuidv4()
-console.log(`Poll complete: ID-${uuid} SIDE-${side} ${str}`)
-var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid} SIDE-${side} ${str}`, poll.info.key).toString();
+console.log(`Poll complete: ID-${uuid} SIDE-${side} A-${sideA} B-${sideB}`)
+var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid} SIDE-${side} A-${sideA} B-${sideB}`, poll.info.key).toString();
       res.render('result', {
          title: poll.info.title,
          description: poll.info.description,
