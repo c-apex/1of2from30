@@ -128,8 +128,8 @@ var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid}-${str}`, poll.info.key).toStri
          var side = poll.info.sideBResult
       }
 uuid = uuidv4()
-console.log(`Poll complete: ID-${uuid}-${str}`)
-var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid}-${str}`, poll.info.key).toString();
+console.log(`Poll complete: ID-${uuid} SIDE-${side} ${str}`)
+var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid} SIDE-${side} ${str}`, poll.info.key).toString();
       res.render('result', {
          title: poll.info.title,
          description: poll.info.description,
@@ -138,12 +138,19 @@ var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid}-${str}`, poll.info.key).toStri
          uuid: uuid,
       });
    }});
+
+app.post('/decode', function(req, res, next){
+var inputstr = req.body.inputstr;
+var inputkey = req.body.inputkey;
+var bytes  = CryptoJS.AES.decrypt(inputstr, inputkey);
+var decodedstr = bytes.toString(CryptoJS.enc.Utf8);
+      res.render('decode', {
+         decodedstr: decodedstr,
+      });
+})
+
 }
 // End of open_index_page function
-
-// WIP Decryption
-// var bytes  = CryptoJS.AES.decrypt(ciphertext, 'secret key 123');
-// var originalText = bytes.toString(CryptoJS.enc.Utf8);
 
 app.listen(port, () => {
   console.log(`1of2from30 listening on port ${port}`)
