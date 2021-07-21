@@ -8,23 +8,25 @@
 <body>
 <div class="jumbotron" id="header">
 <main>
-<h3><%= title %></h3>
-<h3><%= description %></h3>
+<h3>1of2from30</h3>
 </main>
 </div>
 <br>
 <div class="jumbotron" id="header">
-<h4><%= instructions %></h4>
 <hr>
 <main>
-    <h3><%= question %></h3>
-    <hr>
-    <form action="/yes" method="post" enctype="multipart/form-data">
-    <input class="btn btn-primary" name="yes" type="submit" value="Yes"/>
+  <div class="jumbotron">
+  <form action="/pollselect" method="post">
+      <div>
+        <br>
+        <label><b>Please enter the ID of the poll you wish to participate in.</b></label>
+        <br>
+        <input type="text" name="pollid"/><br>
+        <hr>
+        <input class="btn btn-primary" type="submit" value="Load"/>
+      </div>
     </form>
-    <form action="/no" method="post" enctype="multipart/form-data">
-    <input class="btn btn-primary" name="no" type="submit" value="No"/>
-    </form>
+  </div>
 </main>
 </div>
 </body>

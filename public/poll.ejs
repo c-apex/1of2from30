@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>1of2from30</title>
+</head>
+<body>
+<div class="jumbotron" id="header">
+<main>
+<h3><%= title %></h3>
+<h3><%= description %></h3>
+</main>
+</div>
+<br>
+<div class="jumbotron" id="header">
+<h4><%= instructions %></h4>
+<hr>
+<main>
+    <h3><%= question %></h3>
+    <hr>
+    <form action="/yes" method="post" enctype="multipart/form-data">
+    <input class="btn btn-primary" name="yes" type="submit" value="Yes"/>
+    </form><form action="/no" method="post" enctype="multipart/form-data">
+    <input class="btn btn-secondary" name="no" type="submit" value="No"/>
+    </form>
+</main>
+</div>
+</body>
+</html>
