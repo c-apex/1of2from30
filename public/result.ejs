@@ -14,17 +14,11 @@
 </div>
 <br>
 <div class="jumbotron" id="header">
-<h4><%= instructions %></h4>
+<h4><%= result %></h4>
 <hr>
 <main>
-    <h3><%= question %></h3>
-    <hr>
-    <form action="/yes" method="post" enctype="multipart/form-data">
-    <input class="btn btn-primary" name="yes" type="submit" value="Yes"/>
-    </form>
-    <form action="/no" method="post" enctype="multipart/form-data">
-    <input class="btn btn-primary" name="no" type="submit" value="No"/>
-    </form>
+<h5>Your encoded string for this session is:<h5>
+    <h5><%= encodedInfo %></h5>
 </main>
 </div>
 </body>

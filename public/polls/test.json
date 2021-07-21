@@ -123,7 +123,10 @@
   "info": {
     "title": "POLL TITLE",
     "description": "POLL DESCRIPTION",
-    "instructions": "Select all statements you agree with.",
-    "key": "OUTPUT-ENCODING-PHRASE"
+    "instructions": "Do you agree with this statement?",
+    "key": "OUTPUT-ENCODING-PHRASE",
+    "sideAResult": "Side A",
+    "sideBResult": "Side B",
+    "neutralResult": "No Side"
   }
 }
