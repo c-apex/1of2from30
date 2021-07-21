@@ -15,6 +15,7 @@ let strb = "b";
 app.use(session({
   secret: 'user',
   questionnum: 0,
+  questionct: 0,
   sideA: 0,
   sideB: 0,
   uuid: null,
@@ -50,6 +51,7 @@ function open_index_page(req, res, next) {
       poll = require(`./public/polls/${pollid}.json`);
       var text = JSON.parse(JSON.stringify(poll));
       questionnum = 0;
+      questionct = poll.info.questionCount - 1;
       sideA = 0,
       sideB = 0
       res.render('poll', {
@@ -57,18 +59,17 @@ function open_index_page(req, res, next) {
          description: poll.info.description,
          instructions: poll.info.instructions,
          question: poll.questions[0].question,
+         questionnum: questionnum,
+         questionct: questionct,
    })});
 
 
    app.post('/yes', function(req, res, next){
       if (poll.questions[questionnum].side === "a") {
          sideA++;
-         str = str.concat(stra);
       }
-      else {
-         str = str.concat(strb);
-      }
-      let numcompare = questionnum < 29
+      str = str.concat(stra);
+      let numcompare = questionnum < questionct
       if (numcompare === true) {
          questionnum++;
          res.render('poll', {
@@ -76,6 +77,8 @@ function open_index_page(req, res, next) {
             description: poll.info.description,
             instructions: poll.info.instructions,
             question: poll.questions[questionnum].question,
+            questionnum: questionnum,
+            questionct: questionct,
          });
       } else {
          if (sideA > sideB) {
@@ -102,12 +105,9 @@ var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid}-${str}`, poll.info.key).toStri
    app.post('/no', function(req, res, next){
       if (poll.questions[questionnum].side === "b") {
          sideB++;
-         str = str.concat(strb);
       }
-      else {
-         str = str.concat(stra);
-      }
-   let numcompare = questionnum < 29
+      str = str.concat(strb);
+   let numcompare = questionnum < questionct
    if (numcompare === true) {
       questionnum = questionnum + 1;
       res.render('poll', {
@@ -115,6 +115,8 @@ var ciphertext = CryptoJS.AES.encrypt(`ID-${uuid}-${str}`, poll.info.key).toStri
          description: poll.info.description,
          instructions: poll.info.instructions,
          question: poll.questions[questionnum].question,
+         questionnum: questionnum,
+         questionct: questionct,
       });
    }
    else {

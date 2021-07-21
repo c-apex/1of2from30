@@ -124,6 +124,7 @@
     "title": "POLL TITLE",
     "description": "POLL DESCRIPTION",
     "instructions": "Do you agree with this statement?",
+    "questionCount": 30,
     "key": "OUTPUT-ENCODING-PHRASE",
     "sideAResult": "Side A",
     "sideBResult": "Side B",
